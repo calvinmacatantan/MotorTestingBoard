@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.motorcontrol.PWMTalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import com.revrobotics.ColorSensorV3;
+import edu.wpi.first.wpilibj.I2C;
 
 public class MotorBoardSubsystem extends SubsystemBase {
 
@@ -21,6 +23,7 @@ public class MotorBoardSubsystem extends SubsystemBase {
   public final PWMTalonSRX talon0 = new PWMTalonSRX(2);
   public final Solenoid solenoid0 = new Solenoid(PneumaticsModuleType.CTREPCM, 0);
   public final DoubleSolenoid solenoid1 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2); 
+  public final ColorSensorV3 testSensor = new ColorSensorV3(I2C.Port.kOnboard);
 
   /** Creates a new ExampleSubsystem. */
   public MotorBoardSubsystem() {

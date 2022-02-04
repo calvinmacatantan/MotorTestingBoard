@@ -8,10 +8,12 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
+import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.MotorBoardSubsystem;
+import frc.robot.subsystems.ColorSensor;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -22,15 +24,13 @@ import frc.robot.subsystems.MotorBoardSubsystem;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   Joystick j = new Joystick(0);
-
+  ColorSensor colorSensor = new ColorSensor();
   private final MotorBoardSubsystem m_motorBoard = new MotorBoardSubsystem();
+  
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    m_motorBoard.setDefaultCommand(
-      new InstantCommand(() -> setPowers(-j.getRawAxis(1), -j.getRawAxis(5), (j.getRawAxis(3)-j.getRawAxis(2)))
-      )
-    );
+    
     // Configure the button bindings
     configureButtonBindings();
   }
@@ -64,4 +64,5 @@ public class RobotContainer {
     // An ExampleCommand will run in autonomous
     return null;
   }
+
 }
